@@ -18,6 +18,7 @@ elseif MySys() == "mac"
     "source /usr/share/vim/vimrc
 endif
 
+set mouse=a
 set showtabline=2
 set nolist
 set nopaste
@@ -59,6 +60,10 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+Plugin 'godlygeek/tabular'
+":Tab/=
+":Tab/:
+":Tab/|
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -205,6 +210,7 @@ let g:neocomplcache_force_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 
 " let mapleader=","
+nnoremap <leader>h :set filetype=html<cr>
 nnoremap <leader>p :set paste<CR>
 nnoremap <leader>pp :set nopaste<CR>
 nnoremap <TAB> :tabnext<CR>
@@ -212,6 +218,8 @@ nnoremap <S-TAB> :tabprev<CR>
 nnoremap <silent> <F12>   :%s/[ \t\r]\+$//g<CR>
 nnoremap <leader><leader> :%s/[ \t\r]\+$//g<CR>
 nnoremap <leader>b :%g/^s*$/d<CR>
+nnoremap <leader>; :Tab /:<CR>
+nnoremap <leader>= :Tab /=<CR>
 
 syntax on
 filetype plugin indent on
@@ -353,6 +361,46 @@ endif
 "autocmd BufWritePost ~/.vimrc :source %
 "autocmd BufWritePost ~/.bashrc :source %
 
+function! PythonLoad()
+  syn match pythonError "^\s*def\s\+\w\+(.*)\s*$" display
+  syn match pythonError "^\s*class\s\+\w\+(.*)\s*$" display
+  syn match pythonError "^\s*for\s.*[^:]$" display
+  syn match pythonError "^\s*except\s*$" display
+  syn match pythonError "^\s*finally\s*$" display
+  syn match pythonError "^\s*try\s*$" display
+  syn match pythonError "^\s*else\s*$" display
+  syn match pythonError "^\s*else\s*[^:].*" display
+  "syn match pythonError "^\s*if\s.*[^\:]$" display
+  syn match pythonError "^\s*except\s.*[^\:]$" display
+  syn match pythonError "[;]$" display
+  syn keyword pythonError do
+
+  let python_highlight_all=1
+  let python_highlight_builtins=1
+  let python_highlight_exceptions=1
+  let python_highlight_string_formatting=1
+  let python_highlight_sting_templates=1
+  let python_highlight_indent_errors=1
+  let python_highlight_space_errors=1
+  let python_highlight_doctests=1
+
+endfunction
+
+function! JavaLoad()
+  let java_highlight_all=1
+  let java_highlight_debug=1
+  let java_ignore_javadoc=1
+  let java_highlight_functions=1
+  let java_mark_braces_in_parens_as_errors=1
+endfunction
+function! RubyLoad()
+  let g:rubycomplete_buffer_loading=1
+  let g:rubycomplete_rails=1
+  let g:rubycomplete_classes_in_global=1
+  let g:rubycomplete_include_object=1
+  let g:rubycomplete_include_objectspace=1
+endfunction
+
 if has("autocmd")
 
   autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -418,3 +466,4 @@ endif
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 autocmd FileType c,cpp set ts=4 sw=4
+"autocmd FileType php set ts=4 sw=4
