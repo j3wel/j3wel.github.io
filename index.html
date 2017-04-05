@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -12,21 +12,32 @@
     <meta http-equiv="description" content="This is my page">
     <title>Bootstrap 101 Template</title>
     <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="www/vender/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="www/vender/bootstrap/dist/css/bootstrap-theme.min.css">
 
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="www/vender/jquery/dist/jquery.min.js"></script>
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="www/vender/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="js/test.js"></script>
+    <script src="www/vender/clipboard/dist/clipboard.min.js"></script>
+
   </head>
   <body>
     <h1>Hello World</h1>
-    <p>以前从来不去评价，不知道浪费多少京豆，自从知道京豆可以抵现金的时候，才知道京豆的重要。后来我就把这段话复制了，走到哪，复制到哪，即能赚积分，还非常省事。贴了这段话说明对商品是满意的。</p>
+    <p id="content"></p>
+    <div role="form">
+      <div class="form-group">
+        <textarea class="form-control" id="jsonarea" cols="30" rows="10">aaa</textarea>
+      </div>
+      <div>
+        <button class="btn btn-primary" id="format">Format JSON</button>
+        <button class="btn btn-success" data-clipboard-target="#jsonarea">Copy JSON</button>
+      </div>
+    </div>
   </body>
+  <script type="text/javascript" src="js/index.js"></script>
 </html>
