@@ -25,19 +25,20 @@
 
   <script src="www/vender/clipboard/dist/clipboard.min.js"></script>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137965677-1"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137909852-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-137965677-1');
+    gtag('config', 'UA-137909852-1');
   </script>
 </head>
 <body>
 <h1>Welcome to Github</h1>
 <p id="content"></p>
-<button class="btn" data-clipboard-target="#content">
+<button class="btn btn-copy-0" data-clipboard-target="#content">
   <img src="assets/images/clippy.svg" alt="Copy to clipboard" style="width: 20px; height: 20px;">
 </button>
 <div role="form">
@@ -45,10 +46,11 @@
     <textarea class="form-control" id="jsonarea" cols="30" rows="10">{abc:123}</textarea>
   </div>
   <div>
-    <button class="btn btn-primary" id="format">Format JSON</button>
-    <button class="btn btn-success" data-clipboard-target="#jsonarea">Copy JSON</button>
+    <button class="btn btn-primary btn-format-0" id="format">Format JSON</button>
+    <button class="btn btn-success btn-copy-1" data-clipboard-target="#jsonarea">Copy JSON</button>
   </div>
 </div>
 </body>
 <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/createFunctionWithTimeout.js"></script>
 </html>
