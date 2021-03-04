@@ -8,7 +8,8 @@ console.log(Date.now());
 
   $(function () {
     $.get('json/index.json', function (index) {
-      $("#content").html(index.content);
+      console.log(index.content)
+      // $("#content").html(index.content);
     });
     $(".btn-copy-0").click(function() {
       gtag('event', 'copy-0', {
